@@ -65,4 +65,10 @@ test('Verifica se o botão de busca está habilitado quando o input de texto est
   expect(button).toBeEnabled();
 });
 
+test('Verifica se existe um footer com o texto "Brother Motos. Todos os direitos reservados."', () => {
+  render(<App />);
+  const text = screen.getByText(/Brother Motos. Todos os direitos reservados./i);
+  expect(text).toBeInTheDocument();
+});
+
 
