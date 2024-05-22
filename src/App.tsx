@@ -78,7 +78,7 @@ const Home: React.FC = () => {
           <FaInstagram />
         </div>
       </header>
-      <h1 className="title">Busca no Mercado Livre</h1>
+      <h1 className="title">Buscar no Mercado Livre</h1>
       <form onSubmit={handleSearch} className="form">
         <input
           type="text"
