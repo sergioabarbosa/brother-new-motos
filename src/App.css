@@ -1,38 +1,201 @@
-.App {
+/* Importa uma fonte Google para um visual mais profissional */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; /* Define a fonte padrão */
+  background-color: #f0f2f5; /* Cor de fundo clara */
+  color: #333; /* Cor do texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Garante que o conteúdo ocupe a altura total da tela */
+}
+
+/* Centraliza o conteúdo do root e aplica um padding */
+#root {
+  max-width: 1280px;
+  width: 100%; /* Garante que ocupe 100% da largura disponível */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Estilo do banner */
+.banner {
+  width: 100%;
+  background-color: #0070f3; /* Cor de fundo do banner */
+  color: white; /* Cor do texto do banner */
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.banner p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+.social-icons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1rem;
+}
+
+.social-icons svg {
+  width: 2rem;
+  height: 2rem;
   color: white;
+  cursor: pointer;
+  transition: color 200ms;
 }
 
-.App-link {
-  color: #61dafb;
+.social-icons svg:hover {
+  color: #005bb5; /* Cor ao passar o mouse */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilo do título */
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* Estilo do formulário */
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  max-width: 80%;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  border: 1px solid #ccc; /* Borda do input */
+  border-radius: 4px; /* Canto arredondado */
+  width: 300px; /* Largura do input */
+  flex-grow: 1;
+  margin-left: 2rem;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0070f3; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none; /* Sem borda */
+  border-radius: 4px; /* Canto arredondado */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  margin-right: 2rem;
+}
+
+.button:hover {
+  background-color: #005bb5; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* Container dos cartões */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espaço entre os cartões */
+  width: 100%;
+}
+
+/* Estilo dos cartões */
+.card {
+  background-color: #ffffff; /* Cor de fundo branca */
+  border: 1px solid #e0e0e0; /* Borda cinza clara */
+  border-radius: 8px; /* Canto arredondado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 300px; /* Define uma largura máxima para os cartões */
+  transition: transform 200ms, box-shadow 200ms; /* Transição suave */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efeito de elevação */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+}
+
+/* Estilo da imagem */
+.image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px; /* Canto arredondado da imagem */
+}
+
+/* Estilo do título do produto */
+.productTitle {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  color: #333;
+}
+
+/* Estilo do preço do produto */
+.productPrice {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Estilo da paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  color: #0070f3;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 200ms, color 200ms;
+  cursor: pointer;
+}
+
+.pagination a:hover {
+  background-color: #005bb5;
+  color: #fff;
+}
+
+.active a {
+  background-color: #005bb5;
+  color: #fff;
+}
+
+/* Estilo do rodapé */
+.footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background-color: #f0f2f5;
+  color: #888;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9rem;
 }
