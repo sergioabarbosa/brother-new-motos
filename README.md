@@ -2,7 +2,7 @@
 https://brother-example-p856qf7ti-srgios-projects-1476cb5e.vercel.app/
 
 # Para rodar o aplicativo localmente em sua máquina: 
-## após clonar o projeto siga os passos abaixo:
+## após clonar o projeto siga os passos abaixo:,
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
