@@ -1,4 +1,4 @@
-![alt text](https://www.svgrepo.com/show/275462/motorbike-motorcycle.svg =200x)
+<img src="https://www.svgrepo.com/show/275462/motorbike-motorcycle.svg" width="200">
 
 # Para ver o site online em Vercel.com acesse o link: 
 https://brother-example-57xv-2h8v7q4p8-srgios-projects-1476cb5e.vercel.app/
