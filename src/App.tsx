@@ -18,6 +18,7 @@ const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [currentQuery, setCurrentQuery] = useState<string>('');
+  const [cart, setCart] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchInitialProducts = async () => {
@@ -67,6 +68,14 @@ const Home: React.FC = () => {
     }
   };
 
+  const addToCart = (product: Product) => {
+    setCart([...cart, product]);
+  };
+
+  const removeFromCart = (productId: string) => {
+    setCart(cart.filter((item) => item.id !== productId));
+  };
+
   return (
     <div id="root">
       <header className="banner">
@@ -95,6 +104,7 @@ const Home: React.FC = () => {
             <h2 className="productTitle">{item.title}</h2>
             <img src={item.thumbnail} alt={item.title} className="image" />
             <p className="productPrice">Preço: R$ {item.price}</p>
+            <button onClick={() => addToCart(item)} className="button">Adicionar ao Carrinho</button>
           </div>
         ))}
       </div>
@@ -112,6 +122,21 @@ const Home: React.FC = () => {
           forcePage={currentPage}
         />
       )}
+      <h1>Carrinho de Compras</h1>
+      <div className="cart">
+        {cart.length === 0 ? (
+          <p>O carrinho está vazio</p>
+        ) : (
+          cart.map((item) => (
+            <div key={item.id} className="cart-item">
+              <h2>{item.title}</h2>
+              <img src={item.thumbnail} alt={item.title} className="image" />
+              <p>Preço: R$ {item.price}</p>
+              <button onClick={() => removeFromCart(item.id)} className="button">Remover</button>
+            </div>
+          ))
+        )}
+      </div>
       <footer className="footer">
         &copy; {new Date().getFullYear()} Brother Motos. Todos os direitos reservados.
       </footer>
