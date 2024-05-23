@@ -1,13 +1,4 @@
-<!-- Define uma classe para a imagem -->
-<img src="https://www.svgrepo.com/show/275462/motorbike-motorcycle.svg" alt="Motorbike" class="motorbike-img" />
-
-<!-- Adiciona um estilo CSS embutido -->
-<style>
-  .motorbike-img {
-    width: 200px; /* Define a largura da imagem como 200 pixels */
-    height: auto; /* Mantém a proporção da imagem */
-  }
-</style>
+![alt text](https://www.svgrepo.com/show/275462/motorbike-motorcycle.svg =200x)
 
 # Para ver o site online em Vercel.com acesse o link: 
 https://brother-example-57xv-2h8v7q4p8-srgios-projects-1476cb5e.vercel.app/
