@@ -71,4 +71,19 @@ test('Verifica se existe um footer com o texto "Brother Motos. Todos os direitos
   expect(text).toBeInTheDocument();
 });
 
+//carrinho de compras
+test('Verifica se o carrinho de compras está vazio inicialmente', () => {
+  render(<App />);
+  const text = screen.getByText(/O carrinho está vazio/i);
+  expect(text).toBeInTheDocument();
+});
+
+test('Verifica se o botão "Adicionar ao Carrinho" está presente nos cards de produtos', async () => {
+  render(<App />);
+
+  // Espera que pelo menos um botão "Adicionar ao Carrinho" esteja presente
+  const buttons = await screen.findAllByRole('button', { name: /Adicionar ao Carrinho/i });
+  expect(buttons.length).toBeGreaterThan(0);
+});
+
 
