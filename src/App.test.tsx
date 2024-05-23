@@ -86,4 +86,24 @@ test('Verifica se o botão "Adicionar ao Carrinho" está presente nos cards de p
   expect(buttons.length).toBeGreaterThan(0);
 });
 
+test('Verifica se é possível adicionar um produto ao carrinho de compras', async () => {
+  render(<App />);
+
+  // Encontra todos os botões "Adicionar ao Carrinho"
+  const buttons = await screen.findAllByRole('button', { name: /adicionar ao carrinho/i });
+
+  // Verifica se há pelo menos um botão "Adicionar ao Carrinho"
+  expect(buttons.length).toBeGreaterThan(0);
+
+  // Clica no primeiro botão "Adicionar ao Carrinho"
+  fireEvent.click(buttons[0]);
+
+  // Verifica se o texto "O carrinho está vazio" não está mais presente
+  const emptyCartText = screen.queryByText(/o carrinho está vazio/i);
+  expect(emptyCartText).not.toBeInTheDocument();
+
+  // Opcional: Verifica se o produto foi adicionado ao carrinho
+  const cartItem = await screen.findByRole('button', { name: /remover/i });
+  expect(cartItem).toBeInTheDocument();
+});
 
