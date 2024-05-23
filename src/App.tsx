@@ -3,16 +3,16 @@ import ReactPaginate from 'react-paginate';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import './App.css';
 
-interface Product {
+interface Product { // Define a interface Product
   id: string;
   title: string;
   thumbnail: string;
   price: number;
 }
 
-const ITEMS_PER_PAGE = 30;
+const ITEMS_PER_PAGE = 30; // Número de itens por página
 
-const Home: React.FC = () => {
+const Home: React.FC = () => { // Define o componente Home
   const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   const [cart, setCart] = useState<Product[]>([]);
 
   useEffect(() => {
-    const fetchInitialProducts = async () => {
+    const fetchInitialProducts = async () => { // Busca produtos iniciais no Mercado Livre
       try {
         const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=motocicleta`);
         const data = await response.json();
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
     fetchInitialProducts();
   }, []);
 
-  const handleSearch = async (event: FormEvent) => {
+  const handleSearch = async (event: FormEvent) => { // Busca produtos no Mercado Livre
     event.preventDefault();
     try {
       const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}`);
@@ -55,7 +55,7 @@ const Home: React.FC = () => {
     }
   };
 
-  const handlePageChange = async (selectedItem: { selected: number }) => {
+  const handlePageChange = async (selectedItem: { selected: number }) => { // Itera entre as páginas
     const offset = selectedItem.selected * ITEMS_PER_PAGE;
     setCurrentPage(selectedItem.selected);
     try {
@@ -68,15 +68,15 @@ const Home: React.FC = () => {
     }
   };
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product) => { // Adiciona um item ao carrinho
     setCart([...cart, product]);
   };
 
-  const removeFromCart = (productId: string) => {
+  const removeFromCart = (productId: string) => { // Remove um item do carrinho
     setCart(cart.filter((item) => item.id !== productId));
   };
 
-  return (
+  return ( // Renderiza o componente Home
     <div id="root">
       <header className="banner">
         <h1>Bem-vindo a Brother Motos!</h1>
@@ -108,7 +108,7 @@ const Home: React.FC = () => {
           </div>
         ))}
       </div>
-      {query && totalPages > 1 && (
+      {query && totalPages > 1 && ( // Renderiza a paginação caso haja mais de uma página e uma busca tenha sido realizada
         <ReactPaginate
           previousLabel={'Anterior'}
           nextLabel={'Próxima'}
