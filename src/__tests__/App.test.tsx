@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
+import App from '../App';
 
 test('Verifica se a página renderiza o texto "Bem-vindo a Brother Motos!"', () => {
   render(<App />);
