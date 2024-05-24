@@ -35,6 +35,7 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   position: relative;
+  max-height: 30vh;
 }
 
 .banner h1 {
